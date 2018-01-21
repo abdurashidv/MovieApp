@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-3 col-sm-3"></div>
+      <div class="col-md-4 col-sm-4">
+        <input #movieName (keyup.enter)="setMovieName(movieName.value)" type="text" class="form-control" placeholder="movie name">
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <button name="show" class="btn btn-primary btn-block" (click)="setMovieName(movieName.value)" type="button">show</button>
+      </div>
+      <div class="col-md-3 col-sm-3 "></div>
+  </div>
+  <!-- seperating line -->
+  <div class="bb-line"></div>
+
+  <!-- details -->
+  <div [hidden] = "isMovieHidden">
+  <div class="row">
+    <div class="col-md-4">
+      <div><img src="{{movie.Poster}}"></div>
+      <div><b>Year:</b> {{movie.Year}}</div>        
+      <div><b>Country:</b> {{movie.Country}}</div>
+      <div><b>Language:</b> {{movie.Language}}</div>
+      <div><button class="btn btn-primary btn-block">Add to list</button></div>
+    </div>
+    <div class="col-md-8">
+      <div class="title">{{movie.Title}}</div>
+      <div class="subtitle">{{movie.Rated}} | {{movie.Runtime}} | {{movie.Genre}} | {{movie.Type}}</div>
+      <div class="bb-line"></div>
+      <div class="plot">{{movie.Plot}}</div>
+      <div class="plot">Writer(s): {{movie.Writer}}</div>
+      <div class="plot">Actors: {{movie.Actors}}</div>
+      <div class="bb-line"></div>
+      <div class="title-name">Reviews:</div>
+      <div class="review">IMDB Rating: {{movie.imdbRating}}</div>
+      <div class="review">IMDB Votes: {{movie.imdbVotes}}</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="text-center" [hidden] = "!isMovieHidden">
+    {{errorMessage}}
+  </div>
+</div>

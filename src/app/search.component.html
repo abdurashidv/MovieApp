@@ -1,0 +1,13 @@
+ <!-- content -->
+ <div class="content">
+  <div class="row">
+      <div class="col-md-3 col-sm-3"></div>
+      <div class="col-md-4 col-sm-4">
+        <input #movieName (keyup.enter)="routeToDetails(movieName.value)" type="text" class="form-control" placeholder="movie name">
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <button class="btn btn-primary btn-block" (click)="routeToDetails(movieName.value)" type="button">show</button>
+      </div>
+      <div class="col-md-3 col-sm-3"></div>
+  </div>		
+</div>
