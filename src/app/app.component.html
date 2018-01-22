@@ -3,7 +3,8 @@
     <div class="navbar-header">
         <a class="navbar-brand" href="#">Movie App</a>
     </div>
-    <div class="pull-right"><button #login (click)="sendLoginPage()"type="button" class="btn btn-primary">Login</button></div>    
+    <div class="pull-right" [hidden]="userProfile.isLogged()"><button #login (click)="sendLoginPage()"type="button" class="btn btn-primary">Login</button></div>    
+    <div class="pull-right" [hidden]="!userProfile.isLogged()">{{userProfile.getUserName()}}</div>    
   </div>
 </nav>
 

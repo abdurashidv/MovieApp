@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IMovie, IRating } from '../index.interface';
-import { MovieServerService } from '../movie-server.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 

@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search.component';
 import { DetailsComponent } from './details/details.component';
-import { MovieServerService } from './movie-server.service';
 import { UserComponent } from './user/user.component';
+import { UserProfileService } from './services/user-profile.service';
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
   ],
-  providers: [MovieServerService],
+  providers: [UserProfileService],
   bootstrap: [AppComponent]
 })
 

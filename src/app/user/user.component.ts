@@ -1,44 +1,55 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserProfileService } from '../services/user-profile.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
+
 export class UserComponent implements OnInit {
 
   private errorMessage: string;
+  private isShowSignup = false;
 
-  constructor() {
+  constructor(private router: Router, private userProfile: UserProfileService) {
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.isShowSignup = false;
+  }
 
-  userSignup() {
+  public showSignup(): void {
+    this.isShowSignup = true;
+  }
+
+  public userSignup() {
     if (this.hasFilled()) {
-      //
+      this.errorMessage = '';
     } else {
       this.errorMessage = 'Please, fill all the fields.';
     }
   }
 
-  userLogin(login: string, password: string) {
-    // log the user in
+  public userLogin(login: string, password: string) {
     if (this.hasValidCredentials(login, password)) {
-      // user login url goes here
+      this.errorMessage = '';
+      this.userProfile.setInfo('');
+      this.router.navigate(['/search']);
     } else {
       this.errorMessage = 'You have entered invalid username or password.';
     }
   }
 
-  hasValidCredentials(login: string, password: string): boolean {
+  public hasValidCredentials(login: string, password: string): boolean {
     if (login.length > 0 && password.length > 0) {
       return true;
     }
     return false;
   }
 
-  hasFilled(): boolean {
+  public hasFilled(): boolean {
     return false;
   }
 
